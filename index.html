@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vịnh Hạ Long – Kỳ quan thiên nhiên thế giới</title>
+<meta name="description" content="Khám phá Vịnh Hạ Long: điểm đến, văn hóa, ẩm thực, lưu trú và lịch trình gợi ý.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Be+Vietnam+Pro:wght@400;500;600&display=swap" rel="stylesheet">
+<!-- Ảnh dự phòng (SVG gradient) dùng cho onerror -->
+<script>window.FB="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23e9d8a6'/%3E%3Cstop offset='.55' stop-color='%2335a08f'/%3E%3Cstop offset='1' stop-color='%230b4f4a'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='500' fill='url(%23g)'/%3E%3Cpath d='M0 380l90-90 70 60 100-120 90 110 80-70 110 100 120-80 140 90v100H0z' fill='%230b4f4a' opacity='.55'/%3E%3C/svg%3E";</script>
+<link rel="stylesheet" href="style.css">
+<script src="script.js" defer></script>
+</head>
+<body>
+
+<!-- ============ 1. HEADER ============ -->
+<header class="header" id="header">
+  <a href="#top" class="logo" aria-label="Hạ Long Journeys">
+    <svg width="30" height="30" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 24c4 0 4-2 7-2s4 2 7 2 4-2 7-2 4 2 7 2"/><path d="M6 20l5-9 5 9M15 20l5-12 6 12"/></svg>
+    <span>Hạ Long Journeys</span>
+  </a>
+  <nav class="nav" id="nav">
+    <a href="#diem-den">Điểm đến</a><a href="#van-hoa">Văn hóa</a><a href="#am-thuc">Ẩm thực</a><a href="#luu-tru">Lưu trú</a><a href="#lich-trinh">Lịch trình</a>
+    <a href="#lich-trinh" class="btn btn-primary nav-cta">Lên lịch trình ngay</a>
+  </nav>
+  <div class="tools">
+    <span class="wish-count" title="Mục yêu thích">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.8-8 11-8 11z"/></svg><b id="wishCount">0</b>
+    </span>
+    <button class="icon-btn" id="themeBtn" aria-label="Đổi chế độ sáng/tối">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z"/></svg>
+    </button>
+    <button class="icon-btn burger" id="burger" aria-label="Mở menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main id="top">
+<!-- ============ 2. HERO ============ -->
+<section class="hero">
+  <img src="images/hero.jpg" alt="Toàn cảnh Vịnh Hạ Long với hàng trăm đảo đá vôi" onerror="this.onerror=function(){this.onerror=null;this.src=FB};this.src='https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=1800&q=80'">
+  <div class="hero-shade"></div>
+  <div class="hero-body">
+    <h1>Nơi rồng hạ xuống,<br>biển hóa thành thơ</h1>
+    <p>Gần 2.000 đảo đá vôi giữa làn nước ngọc bích. Chọn một trải nghiệm và bắt đầu hành trình của bạn.</p>
+    <form class="search" id="heroSearch">
+      <label>Trải nghiệm
+        <select id="heroCat"><option value="all">Tất cả</option><option value="nature">Thiên nhiên</option><option value="culture">Văn hóa</option><option value="resort">Nghỉ dưỡng</option></select>
+      </label>
+      <label>Số ngày
+        <select id="heroDays"><option value="2">2 ngày 1 đêm</option><option value="3">3 ngày 2 đêm</option><option value="4">4 ngày 3 đêm</option></select>
+      </label>
+      <button class="btn btn-primary" type="submit">Khám phá ngay</button>
+    </form>
+  </div>
+</section>
+
+<!-- ============ 3. ĐIỂM ĐẾN ============ -->
+<section class="section" id="diem-den">
+  <div class="wrap">
+    <div class="head reveal"><h2>Danh lam thắng cảnh</h2><p>Sáu địa điểm không thể bỏ qua trên di sản thiên nhiên thế giới.</p></div>
+    <div class="filters reveal" data-target="spots">
+      <button class="chip active" data-f="all">Tất cả</button><button class="chip" data-f="nature">Thiên nhiên</button><button class="chip" data-f="culture">Văn hóa</button><button class="chip" data-f="resort">Nghỉ dưỡng</button>
+    </div>
+    <div class="grid" id="spots"></div>
+  </div>
+</section>
+
+<!-- ============ 4. VĂN HÓA & ẨM THỰC ============ -->
+<section class="section alt" id="van-hoa">
+  <div class="wrap">
+    <div class="head reveal"><h2>Văn hóa bản địa</h2><p>Những câu chuyện của người làng chài và vùng đất Quảng Ninh.</p></div>
+    <!-- Bố cục zig-zag -->
+    <article class="zig reveal">
+      <img loading="lazy" src="images/culture1.jpg" alt="Làng chài nổi trên vịnh" onerror="this.onerror=function(){this.onerror=null;this.src=FB};this.src='https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?auto=format&fit=crop&w=900&q=80'">
+      <div><h3>Làng chài Cửa Vạn</h3><p>Hàng trăm năm nay, các gia đình sống trên những ngôi nhà nổi giữa vịnh. Bạn có thể chèo thuyền nan, thả lưới cùng ngư dân và nghe họ kể về những mùa cá, mùa gió.</p></div>
+    </article>
+    <article class="zig rev reveal">
+      <img loading="lazy" src="images/culture2.jpg" alt="Lễ hội truyền thống Quảng Ninh" onerror="this.onerror=function(){this.onerror=null;this.src=FB};this.src='https://images.unsplash.com/photo-1583417319070-4a69db38a482?auto=format&fit=crop&w=900&q=80'">
+      <div><h3>Lễ hội Carnaval Hạ Long</h3><p>Mỗi mùa hè, phố biển đón diễu hành, pháo hoa và nhạc hội. Vào đầu năm, lễ hội Yên Tử đưa du khách về với dấu tích Thiền phái Trúc Lâm.</p></div>
+    </article>
+  </div>
+</section>
+
+<section class="section" id="am-thuc">
+  <div class="wrap">
+    <div class="head reveal"><h2>Ẩm thực đặc sắc</h2><p>Hải sản tươi và những món chỉ có ở Quảng Ninh.</p></div>
+    <div class="grid" id="foods"></div>
+  </div>
+</section>
+
+<!-- ============ 5. LƯU TRÚ ============ -->
+<section class="section alt" id="luu-tru">
+  <div class="wrap">
+    <div class="head reveal"><h2>Nơi nghỉ cho mọi hành trình</h2><p>Từ du thuyền ngủ đêm trên vịnh đến homestay nhìn ra biển.</p></div>
+    <div class="filters reveal" data-target="stays">
+      <button class="chip active" data-f="all">Tất cả</button><button class="chip" data-f="resort">Nghỉ dưỡng</button><button class="chip" data-f="culture">Homestay</button><button class="chip" data-f="nature">Trung tâm</button>
+    </div>
+    <div class="grid" id="stays"></div>
+  </div>
+</section>
+
+<!-- ============ 6. LỊCH TRÌNH ============ -->
+<section class="section" id="lich-trinh">
+  <div class="wrap">
+    <div class="head reveal"><h2>Gợi ý lịch trình</h2><p>Chọn số ngày để xem kế hoạch theo từng buổi.</p></div>
+    <div class="tabs reveal" role="tablist" id="tabs">
+      <button class="tab active" role="tab" data-d="2">2 ngày 1 đêm</button><button class="tab" role="tab" data-d="3">3 ngày 2 đêm</button><button class="tab" role="tab" data-d="4">4 ngày 3 đêm</button>
+    </div>
+    <div id="plan" class="plan"></div>
+  </div>
+</section>
+</main>
+
+<!-- ============ 7. FOOTER ============ -->
+<footer class="footer">
+  <div class="wrap fgrid">
+    <div><h4>Trung tâm Xúc tiến Du lịch Quảng Ninh</h4><p>Số 1 Đường Bãi Cháy, TP. Hạ Long, Quảng Ninh<br>Điện thoại: 0203 3 123 456<br>Email: halong@example.vn</p></div>
+    <div><h4>Liên kết nhanh</h4><p><a href="#diem-den">Điểm đến</a><br><a href="#am-thuc">Ẩm thực</a><br><a href="#luu-tru">Lưu trú</a><br><a href="#lich-trinh">Lịch trình</a></p></div>
+    <div><h4>Nhận cẩm nang miễn phí</h4>
+      <form id="newsForm" novalidate class="news"><input type="email" id="newsMail" placeholder="Email của bạn" aria-label="Email"><button class="btn btn-sand" type="submit">Nhận cẩm nang</button></form>
+      <small id="newsMsg" role="status"></small></div>
+  </div>
+  <p class="copy">© 2026 Hạ Long Journeys. Trang demo, thông tin giá và liên hệ chỉ mang tính minh họa.</p>
+</footer>
+
+<!-- MODAL -->
+<div class="modal" id="modal" hidden aria-modal="true" role="dialog">
+  <div class="modal-box"><button class="close" id="mClose" aria-label="Đóng">&times;</button><div id="mBody"></div></div>
+</div>
+<div class="toast" id="toast" role="status"></div>
+</body>
+</html>
